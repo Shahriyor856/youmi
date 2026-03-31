@@ -1,0 +1,18 @@
+[
+  {
+    "section": "О нас",
+    "route": "/header/about"
+  },
+  {
+    "section": "Тарифы",
+    "route": "/header/tariffs"
+  },
+  {
+    "section": "Психологам",
+    "route": "/header/doctors"
+  },
+  {
+    "section": "Материалы",
+    "route": "/header/materials"
+  }
+]

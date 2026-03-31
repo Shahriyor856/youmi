@@ -12,6 +12,12 @@ export default defineNuxtConfig({
     autoImport: true,
   },
 
+  components: [
+    {
+      path: "@/components",
+    },
+  ],
+
   postcss: {
     plugins: {
       tailwindcss: {},
@@ -19,5 +25,5 @@ export default defineNuxtConfig({
     },
   },
 
-  // ssr: false,
+  ssr: false,
 });

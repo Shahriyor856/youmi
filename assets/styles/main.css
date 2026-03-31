@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.container-main {
+  @apply mx-auto w-full max-w-[1180px] px-4 sm:px-6 lg:px-8;
+}
+
+.mian-padding {
+  @apply py-16 px-24;
+}
+
+.example {
+  @apply text-purple-950 font-semibold text-5xl;
+}
