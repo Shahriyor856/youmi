@@ -6,7 +6,7 @@
   @apply mx-auto w-full max-w-[1180px] px-4 sm:px-6 lg:px-8;
 }
 
-.mian-padding {
+.main-padding {
   @apply py-16 px-24;
 }
 

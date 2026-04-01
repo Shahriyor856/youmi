@@ -1,6 +1,6 @@
 <template>
   <div class="bg-[#F9FCFF]">
-    <div class="container-main mian-padding">
+    <div class="container-main main-padding">
       <div class="flex justify-between items-center">
         <NuxtLink to="/">
           <div class="w-32">
@@ -17,7 +17,9 @@
               <p class="text-[#4D4D52] font-semibold">{{ item.section }}</p>
             </NuxtLink>
           </div>
-          <BaseButton variant="outline"> Личный кабинет </BaseButton>
+          <NuxtLink to="/header/profile">
+            <BaseButton variant="outline"> Личный кабинет </BaseButton>
+          </NuxtLink>
         </div>
       </div>
     </div>
