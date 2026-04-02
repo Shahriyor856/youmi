@@ -10,11 +10,15 @@
         <div class="flex justify-center gap-12">
           <div
             class="flex items-center gap-12"
-            v-for="(item, index) in menu"
+            v-for="(item, index) in menuItems"
             :key="index"
           >
-            <NuxtLink :to="item.route">
-              <p class="text-[#4D4D52] font-semibold">{{ item.section }}</p>
+            <NuxtLink
+              :to="{ path: item.route }"
+              class="text-[#4D4D52] font-semibold transition hover:text-[#7872B9]"
+              active-class=" text-[#7872B9]"
+            >
+              {{ item.section }}
             </NuxtLink>
           </div>
           <NuxtLink to="/header/profile">
@@ -26,9 +30,15 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import logo from "@/assets/images/logo youmi 2.svg";
 import BaseButton from "../ui/BaseButton.vue";
-
 import menu from "@/constants/header.json";
+
+interface MenuItem {
+  section: string;
+  route: string;
+}
+
+const menuItems = menu as MenuItem[];
 </script>
