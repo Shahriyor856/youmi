@@ -25,34 +25,38 @@ const props = withDefaults(defineProps<Props>(), {
 
 <template>
   <div class="bg-[#F9FCFF]">
-    <div class="container-main mian-padding">
-      <div class="flex items-center justify-between">
-        <div class="flex flex-col gap-10">
-          <div class="flex flex-col gap-5">
-            <h1 class="text-[#7872B9] font-bold font-montserrat text-3xl">
-              {{ tagline }}
-            </h1>
-            <p
-              class="text-[#4D4D52] font-medium font-montserrat text-3xl whitespace-pre-line"
-            >
-              {{ title }}
-            </p>
+    <div class="container-main main-padding">
+      <div class="bg-[#F9FCFF]">
+        <div class="container-main mian-padding">
+          <div class="flex items-center justify-between">
+            <div class="flex flex-col gap-10">
+              <div class="flex flex-col gap-5">
+                <h1 class="text-[#7872B9] font-bold font-montserrat text-3xl">
+                  {{ tagline }}
+                </h1>
+                <p
+                  class="text-[#4D4D52] font-medium font-montserrat text-3xl whitespace-pre-line"
+                >
+                  {{ title }}
+                </p>
+              </div>
+              <div class="flex flex-col gap-5">
+                <NuxtLink :to="buttonLink">
+                  <BaseButton variant="primary">{{ buttonText }}</BaseButton>
+                </NuxtLink>
+                <p class="text-[#424257] text-sm font-semibold">
+                  {{ priceText }}
+                </p>
+              </div>
+            </div>
+            <div v-if="imageSrc" class="w-80">
+              <img
+                :src="imageSrc"
+                :alt="imageAlt"
+                class="w-full h-auto object-contain"
+              />
+            </div>
           </div>
-          <div class="flex flex-col gap-5">
-            <NuxtLink :to="buttonLink">
-              <BaseButton variant="primary">{{ buttonText }}</BaseButton>
-            </NuxtLink>
-            <p class="text-[#424257] text-sm font-semibold">
-              {{ priceText }}
-            </p>
-          </div>
-        </div>
-        <div v-if="imageSrc" class="w-80">
-          <img
-            :src="imageSrc"
-            :alt="imageAlt"
-            class="w-full h-auto object-contain"
-          />
         </div>
       </div>
     </div>

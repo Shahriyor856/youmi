@@ -13,3 +13,15 @@
 .example {
   @apply text-purple-950 font-semibold text-5xl;
 }
+
+.main-black-text {
+  @apply text-[#4D4D52] font-semibold text-lg  tracking-wide;
+}
+
+.main-purple-text {
+  @apply text-[#7872B9] font-bold text-3xl;
+}
+
+.main-grey-text {
+  @apply text-[#4D4D52]  font-normal text-sm tracking-wide;
+}
