@@ -10,6 +10,13 @@ interface Props {
   priceText?: string;
   imageSrc?: string;
   imageAlt?: string;
+
+  // control props
+
+  showButton?: boolean;
+  showTagline?: boolean;
+  showPrice?: boolean;
+  showTitle?: boolean;
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -20,6 +27,13 @@ const props = withDefaults(defineProps<Props>(), {
   priceText: "2770 руб. за 50 минут сессии",
   imageSrc: example,
   imageAlt: "Hero illustration",
+
+  // control props
+
+  showButton: true,
+  showTagline: true,
+  showPrice: true,
+  showTitle: true,
 });
 </script>
 
@@ -31,10 +45,14 @@ const props = withDefaults(defineProps<Props>(), {
           <div class="flex items-center justify-between">
             <div class="flex flex-col gap-10">
               <div class="flex flex-col gap-5">
-                <h1 class="text-[#7872B9] font-bold font-montserrat text-3xl">
+                <h1
+                  v-if="showTagline"
+                  class="text-[#7872B9] font-bold font-montserrat text-3xl"
+                >
                   {{ tagline }}
                 </h1>
                 <p
+                  v-if="showTitle"
                   class="text-[#4D4D52] font-medium font-montserrat text-3xl whitespace-pre-line"
                 >
                   {{ title }}
@@ -42,9 +60,14 @@ const props = withDefaults(defineProps<Props>(), {
               </div>
               <div class="flex flex-col gap-5">
                 <NuxtLink :to="buttonLink">
-                  <BaseButton variant="primary">{{ buttonText }}</BaseButton>
+                  <BaseButton v-if="showButton" variant="primary">{{
+                    buttonText
+                  }}</BaseButton>
                 </NuxtLink>
-                <p class="text-[#424257] text-sm font-semibold">
+                <p
+                  v-if="showPrice"
+                  class="text-[#424257] text-sm font-semibold"
+                >
                   {{ priceText }}
                 </p>
               </div>

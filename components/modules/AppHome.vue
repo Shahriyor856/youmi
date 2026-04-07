@@ -9,4 +9,6 @@ import image from "@/assets/images/Слой 2 (1).svg";
   <ModulesMainPageFourTable />
   <ModulesMainPageStepsPart />
   <ModulesMainPageQuestionPart />
+  <ModulesMainPageStore />
+  <ModulesMainPageNumbers />
 </template>
