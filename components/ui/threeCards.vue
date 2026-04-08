@@ -8,7 +8,7 @@
       </div>
       <div class="grid grid-cols-3 gap-6 items-start">
         <div
-          v-for="(card, index) in cardsTwo"
+          v-for="(card, index) in cards"
           :key="index"
           class="relative flex flex-col items-center gap-5 px-5 pb-12 pt-10 bg-[#EBF5FF] rounded-3xl"
         >
@@ -35,9 +35,6 @@
 import imageOne from "@/assets/images/freedom.svg";
 import imageTwo from "@/assets/images/safety.svg";
 import imageThree from "@/assets/images/time.svg";
-import globe from "@/assets/images/planet.svg";
-import target from "@/assets/images/target.svg";
-import check from "@/assets/images/check mark.svg";
 
 withDefaults(
   defineProps<{
@@ -72,26 +69,6 @@ withDefaults(
     mainTitle: "Онлайн-психотерапия становится комфортнее",
   },
 );
-
-const cardsTwo = [
-  {
-    image: globe,
-    title: "Свобода возможностей",
-    description:
-      "Проходите сессию из любой точки мира, не тратьте время на дорогу",
-  },
-  {
-    image: check,
-    title: "Будьте уверены в своем выборе",
-    description:
-      "Мы работаем только с квалифицированными специалистами, которые прошли строгий отбор",
-  },
-  {
-    image: target,
-    title: "Ваш запрос важен",
-    description: "Подберем опытного специалиста под ваш запрос",
-  },
-];
 </script>
 
 <!-- USAGE EXAMPLE -->

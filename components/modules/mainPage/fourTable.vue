@@ -1,14 +1,12 @@
 <template>
   <div class="container-main main-padding flex flex-col gap-10">
     <div class="text-start flex flex-col gap-4">
-      <p class="main-black-text">Мы работаем только с</p>
+      <p class="main-black-text max-w-screen-sm">{{ title }}</p>
       <h1 class="main-purple-text">
-        квалифицированными специалистами, <br />
-        которые прошли наш строгий отбор
+        {{ text }}
       </h1>
-      <p class="main-grey-text">
-        Помимо серии собеседований и испытаний по разработанной нами <br />
-        методологии, психологи предоставляют необходимые документы:
+      <p class="main-grey-text max-w-screen-sm">
+        {{ textTwo }}
       </p>
     </div>
 
@@ -73,6 +71,9 @@ const props = withDefaults(
       title?: string;
       text?: string;
     }[];
+    title?: string;
+    text?: string;
+    textTwo?: string;
   }>(),
   {
     items: () => [
