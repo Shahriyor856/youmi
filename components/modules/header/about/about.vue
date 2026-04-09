@@ -14,6 +14,7 @@
   />
 
   <ModulesAboutCotumers />
+  <ModulesAboutPartners />
 </template>
 
 <script setup lang="ts">

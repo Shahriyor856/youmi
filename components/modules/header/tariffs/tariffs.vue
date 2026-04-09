@@ -1,5 +1,14 @@
 <template>
-  <div class="flex items-center justify-center py-52">
-    <h1 class="example">Tariffs Vue</h1>
-  </div>
+  <UiHeaderUI
+    :image-src="tarrifs"
+    button-text="Узнать больше"
+    title="Оплачивая пакет от 4 сессий вы получаете доступ к приложению."
+    :show-price="false"
+    tagline="Выберите количество сессий, которое вы хотите оплатить. "
+  />
+  <ModulesTariffsTarrifsTable />
 </template>
+
+<script setup lang="ts">
+import tarrifs from "@/assets/images/tarrifs.svg";
+</script>
