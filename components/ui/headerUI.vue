@@ -10,6 +10,7 @@ interface Props {
   priceText?: string;
   imageSrc?: string;
   imageAlt?: string;
+  firstBlackText?: string;
 
   // control props
 
@@ -17,6 +18,7 @@ interface Props {
   showTagline?: boolean;
   showPrice?: boolean;
   showTitle?: boolean;
+  showFirstBlackText?: boolean;
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -27,6 +29,7 @@ const props = withDefaults(defineProps<Props>(), {
   priceText: "2770 руб. за 50 минут сессии",
   imageSrc: example,
   imageAlt: "Hero illustration",
+  firstBlackText: "example",
 
   // control props
 
@@ -34,6 +37,7 @@ const props = withDefaults(defineProps<Props>(), {
   showTagline: true,
   showPrice: true,
   showTitle: true,
+  showFirstBlackText: false,
 });
 </script>
 
@@ -45,6 +49,12 @@ const props = withDefaults(defineProps<Props>(), {
           <div class="flex items-center justify-between">
             <div class="flex flex-col gap-10">
               <div class="flex flex-col gap-5">
+                <p
+                  v-if="showFirstBlackText"
+                  class="main-black-text text-lg font-semibold"
+                >
+                  {{ firstBlackText }}
+                </p>
                 <h1
                   v-if="showTagline"
                   class="text-[#7872B9] font-bold font-montserrat text-3xl"
@@ -66,13 +76,13 @@ const props = withDefaults(defineProps<Props>(), {
                 </NuxtLink>
                 <p
                   v-if="showPrice"
-                  class="text-[#424257] text-sm font-semibold"
+                  class="text-[#424257] text-sm font-semibold max-w-screen-sm"
                 >
                   {{ priceText }}
                 </p>
               </div>
             </div>
-            <div v-if="imageSrc" class="w-80">
+            <div v-if="imageSrc" class="w-80 shrink-0">
               <img
                 :src="imageSrc"
                 :alt="imageAlt"

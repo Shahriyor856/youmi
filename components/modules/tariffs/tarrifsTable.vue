@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import BaseButton from "~/components/ui/BaseButton.vue";
+import BaseInput from "~/components/ui/BaseInput.vue";
 
 const tariffs = [
   {
@@ -66,7 +67,11 @@ const tariffs = [
   <div class="container-main main-padding flex flex-col gap-10">
     <h1 class="text-center main-purple-text">Тарифы</h1>
     <div class="grid grid-cols-4 gap-5">
-      <div class="flex flex-col" v-for="(item, index) in tariffs" :key="index">
+      <div
+        class="flex flex-col active:translate-y-[1px] active:translate-x-[1px] duration-100"
+        v-for="(item, index) in tariffs"
+        :key="index"
+      >
         <div class="bg-[#EBF5FF] py-2 rounded-t-xl border border-b-0">
           <p class="text-center">{{ item.number }}</p>
         </div>
@@ -79,14 +84,14 @@ const tariffs = [
           </div>
           <div class="w-full px-5">
             <button
-              class="bg-[#7872B9] py-2 px-14 rounded-lg text-white w-full"
+              class="bg-[#7872B9] py-2 px-14 rounded-lg text-white w-full active:translate-y-[2px] active:translate-x-[2px] duration-100"
             >
               <p class="text-sm font-semibold">{{ item.buttonText }}</p>
             </button>
           </div>
           <div v-if="item.text" class="w-full px-5">
             <button
-              class="bg-[#F1E6F7] py-2 px-10 rounded-lg text-[#4D4D52] w-full"
+              class="bg-[#F1E6F7] py-2 px-10 rounded-lg text-[#4D4D52] w-full active:translate-y-[2px] active:translate-x-[2px] duration-100"
             >
               <p class="text-sm font-semibold">{{ item.text }}</p>
             </button>
@@ -96,6 +101,10 @@ const tariffs = [
           </p>
         </div>
       </div>
+    </div>
+    <div class="flex flex-col gap-5 justify-center items-center">
+      <BaseInput />
+      <BaseButton>Отправить</BaseButton>
     </div>
   </div>
 </template>

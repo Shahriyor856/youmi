@@ -1,13 +1,19 @@
 <template>
   <div class="bg-[#F9FCFF]">
-    <div class="container-main main-padding flex flex-col gap-28">
+    <div
+      class="container-main main-padding flex flex-col"
+      :class="controlSize ? 'gap-0' : 'gap-28'"
+    >
       <h1 class="main-purple-text text-center">
-        Сделайте 4 шага навстречу психотерапии
+        {{ mainTitle }}
       </h1>
       <div v-for="(part, index) in parts">
         <div
-          class="flex justify-between"
-          :class="index % 2 !== 0 ? 'flex-row-reverse' : ''"
+          class="flex"
+          :class="[
+            index % 2 !== 0 ? 'flex-row-reverse' : '',
+            controlSize ? 'gap-28' : 'justify-between',
+          ]"
         >
           <div class="flex items-center gap-10 max-w-96">
             <div class="h-40">
@@ -24,7 +30,7 @@
               </p>
             </div>
           </div>
-          <div class="w-96">
+          <div :class="controlSize ? 'w-36  mt-24' : 'w-96'">
             <img
               :src="part.image"
               alt="image"
@@ -33,7 +39,10 @@
           </div>
         </div>
       </div>
-      <div class="flex justify-between">
+      <div v-if="controlSize" class="flex justify-center items-center pt-20">
+        <BaseButton>Сделать первый шаг</BaseButton>
+      </div>
+      <div class="flex justify-between" v-else>
         <div class="flex gap-5 items-center max-w-72">
           <img :src="icon" alt="image" class="w-16 h-16 object-contain" />
           <p class="main-grey-text px-">
@@ -66,6 +75,8 @@ const props = withDefaults(
       text?: string;
       image?: string;
     }[];
+    mainTitle?: string;
+    controlSize?: boolean;
   }>(),
   {
     parts: () => [
@@ -94,6 +105,8 @@ const props = withDefaults(
         image: imageFour,
       },
     ],
+    mainTitle: "Сделайте 4 шага навстречу психотерапии",
+    controlSize: false,
   },
 );
 </script>

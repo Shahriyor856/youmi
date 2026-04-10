@@ -29,6 +29,9 @@
               Прорабатывайте себя с помощью упражнений и аудиопрактик
             </p>
           </div>
+          <div v-if="useButton">
+            <BaseButton>Доступно в App Store</BaseButton>
+          </div>
         </div>
         <div class="flex relative">
           <img
@@ -39,7 +42,9 @@
           <img :src="screenTwo" alt="image" class="object-contain absolute" />
         </div>
       </div>
-      <BaseButton>Доступно в App Store</BaseButton>
+      <div v-if="useButtonTwo">
+        <BaseButton>Доступно в App Store</BaseButton>
+      </div>
     </div>
   </div>
 </template>
@@ -49,4 +54,14 @@ import tick from "@/assets/images/noun-check-mark-1295838 4.svg";
 import screenOne from "@/assets/images/screen 1.svg";
 import screenTwo from "@/assets/images/screen 2.svg";
 import BaseButton from "~/components/ui/BaseButton.vue";
+
+interface Props {
+  useButton?: boolean;
+  useButtonTwo?: boolean;
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  useButton: false,
+  useButtonTwo: true,
+});
 </script>
