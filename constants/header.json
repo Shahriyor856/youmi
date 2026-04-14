@@ -10,9 +10,5 @@
   {
     "section": "Психологам",
     "route": "/header/doctors"
-  },
-  {
-    "section": "Материалы",
-    "route": "/header/materials"
   }
 ]

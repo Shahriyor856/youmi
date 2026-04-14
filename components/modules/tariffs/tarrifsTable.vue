@@ -68,7 +68,7 @@ const tariffs = [
     <h1 class="text-center main-purple-text">Тарифы</h1>
     <div class="grid grid-cols-4 gap-5">
       <div
-        class="flex flex-col active:translate-y-[1px] active:translate-x-[1px] duration-100"
+        class="flex flex-col active:translate-y-[1px] hover:scale-105 duration-500"
         v-for="(item, index) in tariffs"
         :key="index"
       >

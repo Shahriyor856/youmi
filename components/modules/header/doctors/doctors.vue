@@ -11,9 +11,10 @@ import imageHeader from "@/assets/images/illustr psycho 1.svg";
     :show-price="false"
     button-text="Начать практику в YouMi"
   />
-
   <ModulesDoctorsFirstPart />
-
   <ModulesDoctorsSecondPart />
   <ModulesDoctorsThirdPart />
+  <ModulesDoctorsFourthPart />
+  <ModulesDoctorsFivethePart />
+  <ModulesDoctorsLastPart />
 </template>

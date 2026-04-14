@@ -1,44 +1,20 @@
 <template>
   <div class="container-main main-padding flex flex-col gap-20">
     <div>
-      <h1 class="main-purple-text text-center">Вопросы - ответы</h1>
+      <h1 class="main-purple-text text-center">{{ title }}</h1>
     </div>
+
     <div class="faq-collapse">
-      <el-collapse v-model="activeNames" @change="handleChange">
+      <el-collapse v-model="localActiveNames" @change="handleChange">
         <el-collapse-item
-          name="1"
-          title="Эффективно ли работать с психологом онлайн?"
+          v-for="item in faqList"
+          :key="item.name"
+          :name="item.name"
+          :title="item.title"
         >
           <p class="main-grey-text">
-            Да, эффективно и уже является стандартной практикой во всем мире. За
-            последние годы было проведено много научных исследований,
-            доказывающих, что данный формат не уступает по эффективности
-            традиционной очной психотерапии.
+            {{ item.content }}
           </p>
-        </el-collapse-item>
-        <el-collapse-item name="2" title="Как выбрать специалиста?">
-          <p class="main-grey-text">Ответ на вопрос...</p>
-        </el-collapse-item>
-        <el-collapse-item
-          name="3"
-          title="Чувствую, что мне нужна помощь, но не понимаю в чём проблема. Как быть?"
-        >
-          <p class="main-grey-text">Ответ на вопрос...</p>
-        </el-collapse-item>
-        <el-collapse-item name="4" title="Как вы отбираете психологов в базу?">
-          <p class="main-grey-text">Ответ на вопрос...</p>
-        </el-collapse-item>
-        <el-collapse-item
-          name="5"
-          title="В чем разница между психологом, психотерапевтом и психиатром и как понять кто мне нужен?"
-        >
-          <p class="main-grey-text">Ответ на вопрос...</p>
-        </el-collapse-item>
-        <el-collapse-item
-          name="6"
-          title="Какое количество сессий мне необходимо, чтобы получить результат?"
-        >
-          <p class="main-grey-text">Ответ на вопрос...</p>
         </el-collapse-item>
       </el-collapse>
     </div>
@@ -46,12 +22,36 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, watch } from "vue";
 import type { CollapseModelValue } from "element-plus";
 
-const activeNames = ref(["1"]);
+type FaqItem = {
+  name: string;
+  title: string;
+  content: string;
+};
+
+const props = defineProps<{
+  title: string;
+  faqList: FaqItem[];
+  modelValue: CollapseModelValue;
+}>();
+
+const emit = defineEmits<{
+  (e: "update:modelValue", value: CollapseModelValue): void;
+}>();
+
+const localActiveNames = ref(props.modelValue);
+
+watch(
+  () => props.modelValue,
+  (val) => {
+    localActiveNames.value = val;
+  },
+);
+
 const handleChange = (val: CollapseModelValue) => {
-  console.log(val);
+  emit("update:modelValue", val);
 };
 </script>
 

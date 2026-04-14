@@ -1,6 +1,6 @@
 <template>
   <div class="bg-[#F9FCFF] py-14">
-    <div class=" flex flex-col gap-10">
+    <div class="flex flex-col gap-10">
       <!-- TEXTS -->
       <div class="flex flex-col items-center gap-2">
         <p class="main-black-text">Вместе мы справимся</p>

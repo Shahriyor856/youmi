@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300" width="800" height="300">
+  <rect width="800" height="300" fill="#1a1a2e"/>
+  <!-- body -->
+  <ellipse cx="400" cy="320" rx="120" ry="60" fill="#a89fd8"/>
+  <!-- torso -->
+  <rect x="340" y="200" width="120" height="90" rx="20" fill="#b8b0e8"/>
+  <!-- arms -->
+  <rect x="290" y="215" width="55" height="30" rx="15" fill="#a89fd8"/>
+  <rect x="455" y="215" width="55" height="30" rx="15" fill="#a89fd8"/>
+  <!-- head bg circle -->
+  <circle cx="400" cy="140" r="90" fill="#dcdaf5"/>
+  <!-- head -->
+  <circle cx="400" cy="120" r="55" fill="#7b72b8"/>
+</svg>
