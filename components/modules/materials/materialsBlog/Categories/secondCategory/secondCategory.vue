@@ -1,6 +1,23 @@
 <template>
   <div class="container-main flex flex-col">
     <div class="max-w-2xl mx-auto px-4 py-8">
+      <div class="flex gap-4 items-center">
+        <h2 class="text-lg font-semibold text-gray-700">
+          <NuxtLink to="/header/materials/materialsBlog">Категории</NuxtLink>
+        </h2>
+        <h2 class="text-[#FACD6E] text-2xl font-bold">></h2>
+        <h2 class="text-lg font-semibold text-gray-700">
+          <NuxtLink
+            to="/header/materials/materialsBlog/Categories/firstCategory"
+            >Отношения с партнером</NuxtLink
+          >
+        </h2>
+        <h2 class="text-[#FACD6E] text-2xl font-bold">></h2>
+        <h2 class="text-lg font-semibold text-gray-700">
+          Как побороть тревогу?
+        </h2>
+      </div>
+
       <!-- tags -->
       <div class="flex gap-2 mb-6">
         <span class="text-sm text-gray-400">Теги</span>
@@ -59,7 +76,7 @@
     </div>
 
     <ModulesMaterialsMaterialsBlogPopular />
-    <LazyModulesMaterialsMaterialsBlogCtaBanner />
+    <ModulesMaterialsMaterialsBlogCtaBanner />
   </div>
 </template>
 
