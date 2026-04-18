@@ -26,7 +26,16 @@
   @apply text-[#4D4D52]  font-normal text-sm tracking-wide;
 }
 
+.ui-input {
+  @apply py-1  border text-sm rounded-lg    w-10 text-center  outline-none transition-all duration-150  placeholder:text-gray-400 border-gray-300 hover:border-gray-400 focus:border-violet-400;
+}
 
+.ui-input-year {
+  @apply py-1  border text-sm rounded-lg  w-16   text-center  outline-none transition-all duration-150  placeholder:text-gray-400 border-gray-300 hover:border-gray-400 focus:border-violet-400;
+}
 
-
-
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

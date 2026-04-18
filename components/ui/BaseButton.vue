@@ -1,16 +1,21 @@
 <template>
-  <button :class="buttonClass">
-    <slot />
-  </button>
+  <NuxtLink :to="link">
+    <button :class="buttonClass">
+      <slot />
+    </button>
+  </NuxtLink>
 </template>
 
-<script setup>
-const props = defineProps({
-  variant: {
-    type: String,
-    default: "primary",
+<script setup lang="ts">
+const props = withDefaults(
+  defineProps<{
+    variant?: "primary" | "outline";
+    link?: string;
+  }>(),
+  {
+    variant: "primary",
   },
-});
+);
 
 const buttonClass = computed(() => {
   const base =
@@ -24,5 +29,3 @@ const buttonClass = computed(() => {
   return `${base} ${variants[props.variant]}`;
 });
 </script>
-
-

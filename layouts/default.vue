@@ -4,7 +4,14 @@ import AppHeader from "~/components/layouts/AppHeader.vue";
 
 const route = useRoute() as any;
 
-const HIDE_HEADER_ROUTES = ["/header/profile"];
+const HIDE_HEADER_ROUTES = [
+  "/header/profile",
+  "/header/profile/profileSteps/stepSix",
+  "/header/profile/profileSteps/stepTwo",
+  "/header/profile/profileSteps/stepThree",
+  "/header/profile/profileSteps/stepFour",
+  "/header/profile/profileSteps/stepFive",
+];
 const showHeader = computed(
   () => !HIDE_HEADER_ROUTES.includes(route.path as string),
 );

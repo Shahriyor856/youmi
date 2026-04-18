@@ -44,10 +44,10 @@ defineEmits<{ "update:modelValue": [value: string] }>();
           isDisabled
             ? 'bg-gray-100 text-gray-400 cursor-not-allowed border-gray-200'
             : isError
-              ? 'border-red-400 focus:border-red-500 focus:ring-2 focus:ring-red-100'
+              ? 'border-red-400 focus:border-red-500 focus:ring-2 '
               : isSuccess
-                ? 'border-green-400 focus:border-green-500 focus:ring-2 focus:ring-green-100'
-                : 'border-gray-300 hover:border-gray-400 focus:border-violet-400 focus:ring-2 focus:ring-violet-100',
+                ? 'border-green-400 focus:border-green-500 focus:ring-2 '
+                : 'border-gray-300 hover:border-gray-400 focus:border-violet-400  ',
         ]"
         @input="
           $emit('update:modelValue', ($event.target as HTMLInputElement).value)
