@@ -1,17 +1,21 @@
 <template>
-  <div class="bg-[#F9FCFF] py-14">
-    <div class="flex flex-col gap-10">
+  <div class="bg-[#F9FCFF] py-10 md:py-14">
+    <div class="flex flex-col gap-8 md:gap-10">
+
       <!-- TEXTS -->
-      <div class="flex flex-col items-center gap-2">
-        <p class="main-black-text">Вместе мы справимся</p>
-        <h1 class="main-purple-text">В YouMi вы не одни</h1>
-        <p class="main-grey-text text-center">
-          Профессиональные психологи помогут разобрать <br />
-          вопросы, которые вы не можете решить в одиночку:
+      <div class="container-main main-padding flex flex-col items-center gap-2">
+        <p class="main-black-text text-sm md:text-base">Вместе мы справимся</p>
+        <h1 class="main-purple-text text-2xl md:text-3xl lg:text-4xl text-center">
+          В YouMi вы не одни
+        </h1>
+        <!-- No <br/> — let text wrap naturally -->
+        <p class="main-grey-text text-center text-sm md:text-base max-w-lg">
+          Профессиональные психологи помогут разобрать вопросы,
+          которые вы не можете решить в одиночку:
         </p>
       </div>
 
-      <!-- CAROUSEL -->
+      <!-- CAROUSEL — overflow-hidden stays full-width, no container-main -->
       <div class="overflow-hidden py-3 select-none">
         <div class="flex flex-col gap-2.5">
           <div class="flex gap-2.5 w-max animate-scroll-left">
@@ -32,6 +36,7 @@
           </div>
         </div>
       </div>
+
     </div>
   </div>
 </template>

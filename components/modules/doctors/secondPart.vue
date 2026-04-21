@@ -1,6 +1,8 @@
 <template>
-  <div class="container-main pt-20">
-    <h1 class="main-purple-text text-center">Ждем от вас</h1>
+  <div class="container-main pt-10 md:pt-16 lg:pt-20">
+    <h1 class="main-purple-text text-center text-2xl md:text-3xl lg:text-4xl">
+      Ждем от вас
+    </h1>
   </div>
   <ModulesMainPageFourTable :rows="doctorRows" />
 </template>

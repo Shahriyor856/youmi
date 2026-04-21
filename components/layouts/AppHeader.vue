@@ -1,111 +1,109 @@
 <template>
   <div class="bg-[#F9FCFF]">
     <div class="container-main main-padding">
-      <div class="flex justify-between items-center">
+      <div class="flex justify-between items-center h-16">
+
+        <!-- Logo: base size + one override at md -->
         <NuxtLink to="/">
-          <div class="w-32">
-            <img :src="logo" alt="image" class="w-full h-auto object-contain" />
-          </div>
+          <img :src="logo" alt="Logo" class="w-20 md:w-28 h-auto object-contain" />
         </NuxtLink>
 
-        <div class="flex justify-center gap-12">
-          <div
-            class="flex items-center gap-12"
+        <!-- Desktop nav: hidden on mobile, shown from md -->
+        <div class="hidden md:flex items-center gap-6 lg:gap-10">
+          <NuxtLink
             v-for="(item, index) in menuItems"
             :key="index"
+            :to="item.route"
+            class="text-[#4D4D52] text-sm font-medium transition hover:text-[#7872B9]"
+            active-class="text-[#7872B9]"
           >
-            <NuxtLink
-              :to="{ path: item.route }"
-              class="text-[#4D4D52] font-semibold transition hover:text-[#7872B9]"
-              active-class=" text-[#7872B9]"
-            >
-              {{ item.section }}
-            </NuxtLink>
-          </div>
-          <el-dropdown
-            trigger="click"
-            popper-class="custom-dropdown"
-            @command="handleCommand"
-          >
+            {{ item.section }}
+          </NuxtLink>
+
+          <el-dropdown trigger="click" popper-class="custom-dropdown" @command="handleCommand">
             <div class="dropdown-trigger">
               Материалы
-              <el-icon class="ml-1 transition-transform">
-                <arrow-down />
-              </el-icon>
+              <el-icon class="ml-1"><arrow-down /></el-icon>
             </div>
-
             <template #dropdown>
               <el-dropdown-menu>
-                <el-dropdown-item command="/header/materials/materialsBlog">
-                  Блог
-                </el-dropdown-item>
-
-                <el-dropdown-item command="/header/materials/materialsSecond">
-                  Вебинары
-                </el-dropdown-item>
+                <el-dropdown-item command="/header/materials/materialsBlog">Блог</el-dropdown-item>
+                <el-dropdown-item command="/header/materials/materialsSecond">Вебинары</el-dropdown-item>
               </el-dropdown-menu>
             </template>
           </el-dropdown>
 
           <NuxtLink to="/header/profile">
-            <BaseButton variant="outline"> Личный кабинет </BaseButton>
+            <BaseButton variant="outline">Личный кабинет</BaseButton>
           </NuxtLink>
         </div>
+
+        <!-- Mobile hamburger: shown on mobile, hidden from md -->
+        <button
+          class="md:hidden p-2 text-[#4D4D52]"
+          @click="mobileOpen = !mobileOpen"
+          aria-label="Toggle menu"
+        >
+          <!-- X icon when open, hamburger when closed -->
+          <svg v-if="mobileOpen" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+          <svg v-else class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+
       </div>
+
+      <!-- Mobile menu drawer: slides in below the navbar -->
+      <div v-if="mobileOpen" class="md:hidden pb-4 flex flex-col gap-4">
+        <NuxtLink
+          v-for="(item, index) in menuItems"
+          :key="index"
+          :to="item.route"
+          class="text-[#4D4D52] text-sm font-medium py-2 transition hover:text-[#7872B9]"
+          active-class="text-[#7872B9]"
+          @click="mobileOpen = false"
+        >
+          {{ item.section }}
+        </NuxtLink>
+
+        <span class="text-[#4D4D52] text-sm font-medium py-2 cursor-pointer hover:text-[#7872B9]"
+          @click="handleMaterialsToggle">
+          Материалы ▾
+        </span>
+
+        <div v-if="materialsOpen" class="pl-4 flex flex-col gap-3">
+          <NuxtLink to="/header/materials/materialsBlog" class="text-sm text-[#4D4D52]" @click="mobileOpen = false">Блог</NuxtLink>
+          <NuxtLink to="/header/materials/materialsSecond" class="text-sm text-[#4D4D52]" @click="mobileOpen = false">Вебинары</NuxtLink>
+        </div>
+
+        <NuxtLink to="/header/profile" @click="mobileOpen = false">
+          <BaseButton variant="outline" class="w-full">Личный кабинет</BaseButton>
+        </NuxtLink>
+      </div>
+
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import logo from "@/assets/images/logo youmi 2.svg";
-import BaseButton from "../ui/BaseButton.vue";
-import menu from "@/constants/header.json";
-import { ArrowDown } from "@element-plus/icons-vue";
+import { ref } from 'vue'
+import logo from "@/assets/images/logo youmi 2.svg"
+import BaseButton from "../ui/BaseButton.vue"
+import menu from "@/constants/header.json"
+import { ArrowDown } from "@element-plus/icons-vue"
 
 interface MenuItem {
-  section: string;
-  route: string;
+  section: string
+  route: string
 }
 
-const menuItems = menu as MenuItem[];
+const menuItems = menu as MenuItem[]
+const router = useRouter()
+const mobileOpen = ref(false)
+const materialsOpen = ref(false)
 
-const router = useRouter();
-
-const handleCommand = (path: string) => {
-  router.push(path);
-};
-</script>
-
-<style scoped>
-.dropdown-trigger {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-weight: 600;
-  color: #4d4d52;
-  cursor: pointer;
-  transition: 0.2s;
-}
-
-.dropdown-trigger:hover {
-  color: #7872b9;
-}
-
-.custom-dropdown {
-  border-radius: 12px;
-  padding: 6px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-  border: 1px solid #eee;
-}
-
-.custom-dropdown .el-dropdown-menu__item {
-  border-radius: 8px;
-  padding: 10px 14px;
-  font-weight: 500;
-}
-
-.custom-dropdown .el-dropdown-menu__item:hover {
-  background: #f3f1ff;
-  color: #7872b9;
-}
-</style>
+const handleCommand = (path: string) => router.push(path)
+const handleMaterialsToggle = () => { materialsOpen.value = !materialsOpen.value }
+</script> 

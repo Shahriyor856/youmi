@@ -1,31 +1,33 @@
 <template>
   <div class="bg-[#F9FCFF]">
     <div class="container-main main-padding">
-      <div class="mx-auto flex flex-col items-center gap-20">
+      <div class="mx-auto flex flex-col items-center gap-12 md:gap-20">
         <h1 class="main-purple-text text-center">История проекта</h1>
 
         <div
-          class="w-full flex items-center justify-center gap-36"
+          class="w-full flex flex-col items-center gap-8 md:flex-row md:justify-center md:gap-36"
           v-for="(item, index) in costumers"
           :key="index"
-          :class="index % 2 !== 0 ? 'flex-row-reverse' : ''"
+          :class="index % 2 !== 0 ? 'md:flex-row-reverse' : ''"
         >
-          <div class="w-40 h-40 shrink-0">
+          <div class="w-28 h-28 md:w-40 md:h-40 shrink-0">
             <img
               :src="item.image"
               alt="image"
               class="w-full h-full object-contain"
             />
           </div>
-          <div class="flex flex-col max-w-lg">
+          <div class="flex flex-col max-w-lg w-full">
             <div class="flex flex-col">
               <p class="text-[#FACD6E] text-5xl font-bold text-start">"</p>
-              <p class="text-[grey]">
+              <p class="text-[grey] text-sm md:text-base">
                 {{ item.description }}
               </p>
               <p class="text-[#FACD6E] text-5xl font-bold text-end">"</p>
             </div>
-            <div :class="index % 2 !== 0 ? 'text-start' : 'text-end'">
+            <div
+              :class="index % 2 !== 0 ? 'md:text-start text-end' : 'text-end'"
+            >
               <p class="text-[#7872B9] font-bold text-lg">
                 {{ item.name }}
               </p>

@@ -1,15 +1,17 @@
 <template>
   <div
-    class="container-main main-padding flex flex-col justify-center items-center gap-20"
+    class="container-main main-padding flex flex-col justify-center items-center gap-10 md:gap-20"
   >
     <h1 class="main-purple-text">О нас пишут</h1>
-    <div class="flex justify-between w-full items-center">
+    <div
+      class="grid grid-cols-3 sm:grid-cols-3 md:flex md:justify-between w-full items-center gap-6 md:gap-4"
+    >
       <img
         :src="item.image"
         alt="image"
         v-for="(item, index) in images"
         :key="index"
-        class="h-8 object-contain"
+        class="h-6 md:h-8 object-contain mx-auto md:mx-0"
       />
     </div>
   </div>

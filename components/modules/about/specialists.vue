@@ -1,27 +1,27 @@
 <template>
   <div class="bg-[#F9FCFF]">
-    <div class="container-main main-padding flex flex-col gap-20">
+    <div class="container-main main-padding flex flex-col gap-10 md:gap-20">
       <div class="flex flex-col text-start gap-4">
         <p class="main-black-text">Мы работаем только с</p>
         <h1 class="main-purple-text">
           квалифицированными специалистами, которые прошли наш строгий отбор
         </h1>
       </div>
-      <div class="grid grid-cols-4 gap-5">
+      <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-5">
         <div
           class="flex justify-center items-center flex-col gap-2"
           v-for="(item, index) in individuals"
           :key="index"
         >
-          <div class="w-40 h-40">
+          <div class="w-28 h-28 md:w-40 md:h-40">
             <img
               :src="item.image"
               alt="image"
               class="h-full w-full object-contain rounded-full"
             />
           </div>
-          <p class="main-black-text">{{ item.title }}</p>
-          <p class="main-grey-text">{{ item.text }}</p>
+          <p class="main-black-text text-center">{{ item.title }}</p>
+          <p class="main-grey-text text-center">{{ item.text }}</p>
         </div>
       </div>
     </div>
