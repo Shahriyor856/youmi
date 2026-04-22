@@ -4,7 +4,8 @@
       Ждем от вас
     </h1>
   </div>
-  <ModulesMainPageFourTable :rows="doctorRows" />
+
+  <ModulesMainPageFourTable :cols="3" :rows="doctorRows" />
 </template>
 
 <script setup lang="ts">
@@ -16,7 +17,7 @@ import tick from "@/assets/images/check mark.svg";
 // The component doesn't need to know or care — it just loops.
 
 const doctorRows = [
-  // ── Row 1: one wide card (Документы) ─────────────────────────────────────
+  // Row 1: 1 card — sits alone, stretches full width in a 3-col grid
   [
     {
       image: book,
@@ -24,10 +25,7 @@ const doctorRows = [
       text: "подтверждающие дополнительное образование в определенном направлении психотерапии. Мы рассматриваем только длительные программы обучения, около 500 часов.",
     },
   ],
-
-  // ── Row 2: three small cards side by side ────────────────────────────────
-  // These were completely missing from your original page script!
-  // No image provided → each card gets the spacer div.
+  // Row 2: 3 cards — fills all 3 columns exactly
   [
     {
       title: "Диплом",
@@ -42,13 +40,12 @@ const doctorRows = [
       text: "личной терапии от 50 часов в год.",
     },
   ],
-
-  // ── Row 3: one wide card (Подтвержденный опыт) ───────────────────────────
+  // Row 3: 1 card — sits alone, stretches full width
   [
     {
       image: tick,
       title: "Подтвержденный опыт работы",
-      text: "не менее 3-х лет. Учитывается только опыт консультирования за оплату и не в рамках учебной программы. сультирования за оплату и не в рамках учебной программы",
+      text: "не менее 3-х лет. Учитывается только опыт консультирования за оплату и не в рамках учебной программы.",
     },
   ],
 ];
